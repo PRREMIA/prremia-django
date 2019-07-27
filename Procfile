@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT prremia.wsgi
+web: gunicorn --bind 0.0.0.0:$PORT PRREMIA.wsgi
