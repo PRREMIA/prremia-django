@@ -1,0 +1,42 @@
+{% extends "business/base.html" %}
+{% block products %}
+    {% if products|length >= 4 %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}#products">Products</a>
+        </li>
+    {% endif %}
+{% endblock products %}
+{% block content %}
+    <article class="media content-section" style="margin-top:100px; margin-bottom:70px; margin-left: auto; margin-right: auto; width:992px">
+        <div class="media-body">
+        <div class="article-metadata">
+            <h1>Home</h1>
+        </div>
+        <p class="article-content">
+            {{ home|safe }}
+        </p>
+        <div class="article-metadata">
+            <h1 id="#about">About</h1>
+        </div>
+        <p class="article-content">
+            {{ about|safe }}
+        </p>
+        {% if products|length >= 4 %}
+            <div class="article-metadata">
+                <h1>Products</h1>
+            </div>
+            <p class="article-content">
+                Some examples of products you can buy!
+            </p>
+            {% for img in products %}
+                {{ img|safe }}
+                {% if forloop.counter == 10 and products|length|add:"-10" > 10 %}
+                    <span id="more">
+                {% endif %}
+                {% if forloop.last and forloop.counter >= 10 and products|length|add:"-10" > 10 %}
+                    </span><button onclick="SeeMore()" id="seemore" class="btn btn-info btn-lg btn-block" style="width: 949px !important;">See more</button>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </article>
+{% endblock content %}
