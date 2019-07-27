@@ -27,7 +27,7 @@ SECRET_KEY = '3g-6=fp@k^1!0aix=eh$7fd3(udiiwuzq*_r^kn0uo099mwfii'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://prremia.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
