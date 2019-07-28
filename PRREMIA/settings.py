@@ -21,11 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3g-6=fp@k^1!0aix=eh$7fd3(udiiwuzq*_r^kn0uo099mwfii'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -136,4 +131,16 @@ try:
 
     DATABASES['default'] = LOCAL_DATABASE_SETTING
 except ImportError:
-    DATABASES['default'] = dj_database_url.config()
+    DATABASES['default'] = {
+        'ENGINE': django.db.backends.postgresql,
+        'NAME': '',
+        }
+
+try: 
+    from .local_settings import KEY, DEBUG_VAL
+
+    DEBUG = DEBUG_VAL
+    SECRET_KEY = KEY
+except ImportError:
+    SECRET_KEY = 'd575518231fbdde4eac04ac9539b6e13ef5524d7f78ed547'
+    DEBUG = True
