@@ -132,7 +132,7 @@ try:
     DATABASES['default'] = LOCAL_DATABASE_SETTING
 except ImportError:
     DATABASES['default'] = {
-        'ENGINE': django.db.backends.postgresql,
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': '',
         }
 
