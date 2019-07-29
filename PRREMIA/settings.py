@@ -111,17 +111,15 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
-STATIC_URL = '/static_cdn/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'business', 'static')
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'business', 'staticfiles')
+]
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
