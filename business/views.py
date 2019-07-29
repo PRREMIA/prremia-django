@@ -16,6 +16,3 @@ def home(request):
         products = products.replace(tag,tags[tag])
     products = products.split('\n')
     return render(request, 'business/home.html', {'home':home, 'about':about,'products':products})
-
-def donate(request):
-    return render(request, 'business/donate.html')
