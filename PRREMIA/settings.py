@@ -137,9 +137,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #         'NAME': 'heroku-postgresql',
 #         }
 
-import django_heroku
-django_heroku.settings(locals())
-
 try: 
     from .local_settings import KEY, DEBUG_VAL
 
@@ -148,3 +145,6 @@ try:
 except ImportError:
     SECRET_KEY = secrets.token_hex(24)
     DEBUG = False
+
+import django_heroku
+django_heroku.settings(locals())
