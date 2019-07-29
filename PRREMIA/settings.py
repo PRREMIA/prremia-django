@@ -123,19 +123,22 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-DATABASES = {
-    'default': {}
-}
+# DATABASES = {
+#     'default': {}
+# }
 
-try:
-    from .local_settings import LOCAL_DATABASE_SETTING
+# try:
+#     from .local_settings import LOCAL_DATABASE_SETTING
 
-    DATABASES['default'] = LOCAL_DATABASE_SETTING
-except ImportError:
-    DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'heroku-postgresql',
-        }
+#     DATABASES['default'] = LOCAL_DATABASE_SETTING
+# except ImportError:
+#     DATABASES['default'] = {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'heroku-postgresql',
+#         }
+
+import django_heroku
+django_heroku.settings(locals())
 
 try: 
     from .local_settings import KEY, DEBUG_VAL
